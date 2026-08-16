@@ -26,12 +26,9 @@ architecture rtl of uart_tx is
     type state_t is (IDLE, START_BIT, DATA_BITS, STOP_BIT);
     signal state : state_t := IDLE;
     -- Internal registers
-    signal clk_count :
-        natural range 0 to CLKS_PER_BIT - 1 := 0;
-    signal bit_index :
-        natural range 0 to 7 := 0;
-    signal data_reg :
-        std_logic_vector(7 downto 0) := (others => '0');
+    signal clk_count : natural range 0 to CLKS_PER_BIT - 1 := 0;
+    signal bit_index : natural range 0 to 7 := 0;
+    signal data_reg : std_logic_vector(7 downto 0) := (others => '0');
 begin
     -- UART transmitter
     process(clk)
